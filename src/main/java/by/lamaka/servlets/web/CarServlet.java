@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.Locale;
 import java.util.Map;
 
 @WebServlet(name = "car", value = "/car")
@@ -29,25 +27,26 @@ public class CarServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            StringBuilder stringBuilder = new StringBuilder("<html><body>");
             if (request.getParameter("id") == null) {
-                carDAO.getAll().forEach(c -> stringBuilder.append(c + "<br>"));
+                request.setAttribute("cars", carDAO.getAll());
+                request.getRequestDispatcher("/cars.jsp").forward(request,response);
             } else {
+                StringBuilder stringBuilder = new StringBuilder("<html><body>");
                 int id = Integer.parseInt(request.getParameter("id"));
                 stringBuilder.append(carDAO.get(id));
+                stringBuilder.append("</html></body>");
+                response.getWriter().print(stringBuilder.toString());
             }
-            stringBuilder.append("</html></body>");
-            response.getWriter().print(stringBuilder.toString());
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException | ServletException e) {
             response.sendError(410, e.getMessage());
         }
 
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, String> paramsFormBody = RequestBodyMapper.map(request);
         String brand = paramsFormBody.get("brand");
         String model = paramsFormBody.get("model");
@@ -62,7 +61,7 @@ public class CarServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Map<String, String> paramsFormBody = RequestBodyMapper.map(req);
         long id = Long.parseLong(paramsFormBody.get("id"));
         String brand = paramsFormBody.get("brand");
@@ -78,7 +77,7 @@ public class CarServlet extends HttpServlet {
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int id = Integer.parseInt(req.getParameter("id"));
 
         try {
