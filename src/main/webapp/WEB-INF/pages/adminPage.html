@@ -3,42 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
 </head>
 <body>
-<h1>Hello, ADMIN</h1>
-<p>
-<h3> Add new user</h3>
-<form action="/admin" method="post">
-    <label for="login">
-        LOGIN : <input type="text" id="login" name="login" required>
-    </label>
+<div class="adminDiv">
+    <h1>Hello, ADMIN</h1>
     <p>
-        <label for="password">
-            PASSWORD : <input type="password" id="password" name="password" required>
-        </label>
-    <p>
-        <label for="description">
-            DESCRIPTION : <input type="text" id="description" name="description">
-        </label>
-    <p>
-    <div>
-        SEX :
-        <input type="radio" name="sex" value="MALE">MALE
-        <input type="radio" name="sex" value="FEMALE">FEMALE
-    </div>
-    <p>
-    <div>
-        ROLE :
-        <input type="radio" name="role" value="ADMIN">ADMIN
-        <input type="radio" name="role" value="USER">USER
-    </div>
-    <p>
+    <h3> Add new user</h3>
 
-        <input type="submit" value="ADD">
-    <p>
-</form>
-<form action="/user" method="get">
-    <input type="submit" value="LOGOUT">
-</form>
+    <form action="/admin" method="post">
+        <label for="login">
+            LOGIN : <input type="text" id="login" name="login" required>
+        </label>
+        <p>
+            <label for="password">
+                PASSWORD : <input type="password" id="password" name="password" required>
+            </label>
+        <p>
+            <label for="description">
+                DESCRIPTION : <input type="text" id="description" name="description">
+            </label>
+        <p>
+        <div class="sex">
+            SEX :
+            <input type="radio" name="sex" value="MALE">MALE
+            <input type="radio" name="sex" value="FEMALE">FEMALE
+        </div>
+        <p>
+        <div class="role">
+            ROLE :
+            <input type="radio" name="role" value="ADMIN">ADMIN
+            <input type="radio" name="role" value="USER">USER
+        </div>
+        <p>
+
+            <input type="submit" value="ADD">
+    </form>
+    <form action="/user" method="get">
+        <input type="submit" value="LOGOUT">
+    </form>
+</div>
 </body>
 </html>

@@ -3,7 +3,11 @@
 <html>
 <head>
     <title>Cars</title>
+    <link rel="stylesheet" href="<c:url value="/css/styles.css"/>" type="text/css">
 </head>
+<style>
+    <%@include file="css/styles.css"%>
+</style>
 <body>
 <table>
     <tr>
@@ -13,12 +17,12 @@
         <th>Production year</th>
     </tr>
     <c:forEach items="${cars}" var="car">
-        <tr>
-            <td><c:out value="${car.id}"/></td>
-            <td><c:out value="${car.brand}"/></td>
-            <td><c:out value="${car.model}"/></td>
-            <td><c:out value="${car.productionYear}"/></td>
-        </tr>
+    <tr>
+        <td><c:out value="${car.id}"/></td>
+        <td><c:out value="${car.brand}"/></td>
+        <td><c:out value="${car.model}"/></td>
+        <td><c:out value="${car.productionYear}"/></td>
+    </tr>
     </c:forEach>
 </body>
 </html>
