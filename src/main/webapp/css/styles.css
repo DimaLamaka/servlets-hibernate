@@ -1,0 +1,27 @@
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table{
+    width: 50%;
+}
+
+input{
+    padding:10px;
+    border-radius: 10px;
+    margin: 3px;
+    color: dimgrey;
+    font-style: italic;
+}
+h1,label,.sex,.role {
+    color: dimgrey;
+    font-style: italic;
+}
+
+.adminDiv, .userDiv{
+    width: 20%;
+    border: 1px solid #333;
+    padding: 8px 12px;
+    margin-left: auto;
+    margin-right: auto;
+}

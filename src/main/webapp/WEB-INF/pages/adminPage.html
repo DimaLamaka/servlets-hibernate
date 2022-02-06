@@ -3,42 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
+    <!--<link rel="stylesheet" href="/css/styles.css" type="text/css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<h1>Hello, ADMIN</h1>
-<p>
-<h3> Add new user</h3>
-<form action="/admin" method="post">
-    <label for="login">
-        LOGIN : <input type="text" id="login" name="login" required>
-    </label>
-    <p>
-        <label for="password">
-            PASSWORD : <input type="password" id="password" name="password" required>
-        </label>
-    <p>
-        <label for="description">
-            DESCRIPTION : <input type="text" id="description" name="description">
-        </label>
-    <p>
-    <div>
-        SEX :
-        <input type="radio" name="sex" value="MALE">MALE
-        <input type="radio" name="sex" value="FEMALE">FEMALE
-    </div>
-    <p>
-    <div>
-        ROLE :
-        <input type="radio" name="role" value="ADMIN">ADMIN
-        <input type="radio" name="role" value="USER">USER
-    </div>
-    <p>
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col">
 
-        <input type="submit" value="ADD">
-    <p>
-</form>
-<form action="/user" method="get">
-    <input type="submit" value="LOGOUT">
-</form>
+        </div>
+        <div class="col-8 border border-2 rounded">
+            <h1 class="display-2 text-center fst-italic ">Hello, ADMIN</h1>
+            <h1 class="display-4 text-center fst-italic ">Add new user</h1>
+            <form action="/admin" method="post">
+                <div class="row mb-3">
+                    <label for="inputLogin" class="col-sm-2 col-form-label">Login</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputLogin" name="login">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" name="password">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputDescription" name="description">
+                    </div>
+                </div>
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Role</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="role" id="adminRadio" value="ADMIN"
+                                   checked>
+                            <label class="form-check-label" for="adminRadio">
+                                Admin
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="role" id="userRadio" value="USER">
+                            <label class="form-check-label" for="userRadio">
+                                User
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Sex</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sex" id="maleRadio" value="MALE" checked>
+                            <label class="form-check-label" for="maleRadio">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sex" id="femaleRadio" value="FEMALE">
+                            <label class="form-check-label" for="femaleRadio">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-dark" type="submit">ADD USER</button>
+                </div>
+            </form>
+            <form action="/user" method="get">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-dark" type="submit">LOGOUT</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 </html>
