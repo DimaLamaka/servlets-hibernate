@@ -8,23 +8,23 @@ import java.util.List;
 
 public interface CarDAO {
 
-    void saveCar(Car car);
+    void save(Car car);
 
-    void updateCar(Car car);
+    void update(Car car);
 
-    void deleteCar(int id);
+    void delete(int id);
 
-    Car getCarById(int id);
+    Car getCar(int id);
 
-    List<Car> getCarsByBrand(CarBrand carBrand);
+    List<Car> getByBrand(CarBrand carBrand);
 
-    List<Car> getCarsByDateCreated(Date date);
+    List<Car> getByDateCreated(Date date);
 
-    List<Car> getAllExistCars();
+    List<Car> getAllExist();
 
-    Car getCarByNumber(int number);
+    Car getByNumber(int number);
 
-    List<Car> getAllCars();
+    List<Car> getAll();
 
     void changeExistStatus(int id, boolean status);
 

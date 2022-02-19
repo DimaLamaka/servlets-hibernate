@@ -7,9 +7,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "cars_v2")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Data
 @NoArgsConstructor
@@ -30,6 +31,12 @@ public class Car {
     @Column(name = "date_of_manufacture_car")
     @Temporal(TemporalType.DATE)
     Date dateOfManufactureCar;
+
+    @ManyToMany(mappedBy = "cars",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    List<Region> regions;
+
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    Customer customer;
 
     @Column(name = "time_of_create")
     @Temporal(TemporalType.TIME)
@@ -54,5 +61,9 @@ public class Car {
         this.carBrand = carBrand;
         this.dateOfManufactureCar = dateOfManufactureCar;
         this.isExistOnWarehouse = isExistOnWarehouse;
+    }
+
+    public boolean getIsExistOnWarehouse() {
+        return isExistOnWarehouse;
     }
 }

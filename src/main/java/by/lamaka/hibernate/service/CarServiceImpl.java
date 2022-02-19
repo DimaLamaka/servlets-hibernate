@@ -20,48 +20,48 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void saveCar(Car car) {
-        carDAO.saveCar(car);
+    public void save(Car car) {
+        carDAO.save(car);
     }
 
     @Override
-    public void updateCar(Car car) {
-        carDAO.updateCar(car);
+    public void update(Car car) {
+        carDAO.update(car);
     }
 
     @Override
-    public void deleteCar(int id) {
-        carDAO.deleteCar(id);
+    public void delete(int id) {
+        carDAO.delete(id);
     }
 
     @Override
-    public Car getCarById(int id) {
-        return carDAO.getCarById(id);
+    public Car getById(int id) {
+        return carDAO.getCar(id);
     }
 
     @Override
-    public List<Car> getCarsByBrand(CarBrand carBrand) {
-        return carDAO.getCarsByBrand(carBrand);
+    public List<Car> getByBrand(CarBrand carBrand) {
+        return carDAO.getByBrand(carBrand);
     }
 
     @Override
-    public List<Car> getCarsByDateCreated(Date date) {
-        return carDAO.getCarsByDateCreated(date);
+    public List<Car> getByDateCreated(Date date) {
+        return carDAO.getByDateCreated(date);
     }
 
     @Override
-    public List<Car> getAllExistCars() {
-        return carDAO.getAllExistCars();
+    public List<Car> getAllExist() {
+        return carDAO.getAllExist();
     }
 
     @Override
-    public Car getCarByNumber(int number) {
-        return carDAO.getCarByNumber(number);
+    public Car getByNumber(int number) {
+        return carDAO.getByNumber(number);
     }
 
     @Override
-    public List<Car> getAllCars() {
-        return carDAO.getAllCars();
+    public List<Car> getAll() {
+        return carDAO.getAll();
     }
 
     @Override
