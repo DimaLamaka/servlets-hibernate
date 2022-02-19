@@ -9,24 +9,24 @@
     <br>
     <br>
     {
-    Id:<c:out value="${customer.id}"/>
-    First name:<c:out value="${customer.firstName}"/>
-    Second name:<c:out value="${customer.secondName}"/>
-    Age:<c:out value="${customer.age}"/>
+    Id:${customer.id}
+    First name:${customer.firstName}
+    Second name:${customer.secondName}
+    Age:c:out value="${customer.age}
     <br>
     Cars:
     { <c:forEach var="car" items="${customer.cars}"><br>
-    Id:<c:out value="${car.id}"/>
-    Brand:<c:out value="${car.carBrand}"/>
-    Number:<c:out value="${car.carNumber}"/>
-    Date of manufacture: <c:out value="${car.dateOfManufactureCar}"/>
-    Exist on warehouse: <c:out value="${car.isExistOnWarehouse}"/>
+    Id:${car.id}
+    Brand:${car.carBrand}
+    Number:${car.carNumber}
+    Date of manufacture:${car.dateOfManufactureCar}
+    Exist on warehouse:${car.isExistOnWarehouse}
     <br>
     Regions:
     <c:forEach var="region" items="${car.regions}"> <br>
         {
-        Id:<c:out value="${region.id}"/>
-        Region:<c:out value="${region.region}"/>
+        Id:${region.id}
+        Region:${region.region}
         }
     </c:forEach>
 </c:forEach>

@@ -36,22 +36,22 @@ public class CarServlet extends HttpServlet {
         List<Car> result = new ArrayList<>();
         switch (param) {
             case "id":
-                result.add(carService.getCarById(Integer.parseInt(request.getParameter(param))));
+                result.add(carService.getById(Integer.parseInt(request.getParameter(param))));
                 break;
             case "number":
-                result.add(carService.getCarByNumber(Integer.parseInt(request.getParameter(param))));
+                result.add(carService.getByNumber(Integer.parseInt(request.getParameter(param))));
                 break;
             case "brand":
-                result = carService.getCarsByBrand(CarBrand.valueOf(request.getParameter(param).toUpperCase()));
+                result = carService.getByBrand(CarBrand.valueOf(request.getParameter(param).toUpperCase()));
                 break;
             case "date":
-                result = carService.getCarsByDateCreated(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter(param)));
+                result = carService.getByDateCreated(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter(param)));
                 break;
             case "ifExist":
-                result = carService.getAllExistCars();
+                result = carService.getAllExist();
                 break;
             default:
-                result = carService.getAllCars();
+                result = carService.getAll();
         }
 
         response.getWriter().println(result);
@@ -68,7 +68,7 @@ public class CarServlet extends HttpServlet {
                 .isExistOnWarehouse(Boolean.getBoolean(request.getParameter("ifExist")))
                 .build();
 
-        carService.saveCar(car);
+        carService.save(car);
 
     }
 
@@ -83,7 +83,7 @@ public class CarServlet extends HttpServlet {
                     .dateOfManufactureCar(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date")))
                     .isExistOnWarehouse(Boolean.getBoolean(request.getParameter("ifExist")))
                     .build();
-            carService.updateCar(car);
+            carService.update(car);
         } else if (request.getParameter("changeExist") != null && request.getParameter("id") != null) {
             carService.changeExistStatus(Integer.parseInt(request.getParameter("id")), Boolean.getBoolean(request.getParameter("changeExist")));
         }
@@ -95,7 +95,7 @@ public class CarServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
         String id = req.getParameter("id");
 
-        carService.deleteCar(Integer.parseInt(id));
+        carService.delete(Integer.parseInt(id));
     }
 
 }

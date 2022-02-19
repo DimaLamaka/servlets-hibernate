@@ -121,9 +121,9 @@ public class HibernateUtil {
             car4.setCustomer(customer2);
             car6.setCustomer(customer2);
 
-            session.saveOrUpdate(customer);
-            session.saveOrUpdate(customer1);
-            session.saveOrUpdate(customer2);
+            session.save(customer);
+            session.save(customer1);
+            session.save(customer2);
 
             transaction.commit();
         }

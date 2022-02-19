@@ -14,7 +14,7 @@ import java.util.List;
 public class CarDAOImpl implements CarDAO {
 
     @Override
-    public void saveCar(Car car) {
+    public void save(Car car) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.save(car);
@@ -23,7 +23,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public void updateCar(Car car) {
+    public void update(Car car) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.update(car);
@@ -32,7 +32,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public void deleteCar(int id) {
+    public void delete(int id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             Query<Car> query = session.createQuery("delete Car where id=:id");
@@ -43,7 +43,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public Car getCarById(int id) {
+    public Car getCar(int id) {
         Car car = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -55,7 +55,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public List<Car> getCarsByBrand(CarBrand carBrand) {
+    public List<Car> getByBrand(CarBrand carBrand) {
         List<Car> cars = new ArrayList<>();
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -69,7 +69,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public List<Car> getCarsByDateCreated(Date date) {
+    public List<Car> getByDateCreated(Date date) {
         List<Car> cars = new ArrayList<>();
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -83,7 +83,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public List<Car> getAllExistCars() {
+    public List<Car> getAllExist() {
         List<Car> cars = new ArrayList<>();
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -96,7 +96,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public Car getCarByNumber(int number) {
+    public Car getByNumber(int number) {
         Car car = null;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -110,7 +110,7 @@ public class CarDAOImpl implements CarDAO {
     }
 
     @Override
-    public List<Car> getAllCars() {
+    public List<Car> getAll() {
         List<Car> cars = new ArrayList<>();
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
